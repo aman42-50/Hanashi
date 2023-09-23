@@ -1,0 +1,29 @@
+.Sidebar{
+    background-color: #15202b;
+    height: 100%;
+    width: 20%;
+    box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19);
+    position: fixed;
+}
+
+.SidebarButton{
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.SidebarButton:hover {
+    background-color: #e8f5fe;
+    border-radius: 30px;
+    transition: color 100ms ease-out;
+}
+
+.SidebarButton > h5{
+    margin: auto;
+    margin-left: 10px;
+    font-size: 19px;
+}
