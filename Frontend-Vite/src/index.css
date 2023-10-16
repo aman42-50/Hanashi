@@ -32,3 +32,11 @@
 * {
     margin: 0;
   }
+
+:root {
+  --color-bg: #06141d;
+  --color-container: #1b2730;
+}
+#root {
+  height: 100vh;
+}
