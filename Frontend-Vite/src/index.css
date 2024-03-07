@@ -36,7 +36,27 @@
 :root {
   --color-bg: #06141d;
   --color-container: #1b2730;
+  --color-secondary: #28343e;
+  --color-lavender: #9873AC;
+  --color-cyan: #E0FFFF;
 }
 #root {
   height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #28343e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1b2730;
 }

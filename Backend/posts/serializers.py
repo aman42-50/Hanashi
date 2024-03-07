@@ -49,11 +49,14 @@ class PostSerializer(serializers.ModelSerializer):
         write_only=True, required=False)
     deleted_images = serializers.ListField(write_only=True, required=False)
 
+    liked = serializers.IntegerField(write_only=True, required=False)
+    disliked = serializers.IntegerField(write_only=True, required=False)
+
     class Meta:
         model = Post
         fields = ('id', 'title', 'content', 'date_posted', 'author', 'author_profile_pic',
                   'author_username', 'author_first_name', 'author_last_name', 'likes',
-                  'images', 'uploaded_images', 'deleted_images')
+                  'images', 'uploaded_images', 'deleted_images', 'liked', 'disliked')
 
     def create(self, validated_data):
         uploaded_images = []
@@ -72,6 +75,16 @@ class PostSerializer(serializers.ModelSerializer):
         deleted_images = []
         if "deleted_images" in validated_data:
             deleted_images = validated_data.pop("deleted_images")
+
+        if "disliked" in validated_data:
+            disliked = validated_data.pop("disliked")
+            instance.likes.remove(disliked)
+            instance.save()
+
+        elif "liked" in validated_data:
+            liked = validated_data.pop("liked")
+            instance.likes.add(liked)
+            instance.save()
 
         post = super().update(instance, validated_data)
 

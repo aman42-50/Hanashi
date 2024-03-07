@@ -36,8 +36,8 @@ const LoginPage = () => {
             "Content-Type": "application/json",
             },
             body: JSON.stringify({
-            username: e.target.username.value,
-            password: e.target.password.value,
+                username: e.target.username.value,
+                password: e.target.password.value,
             }),
         });
         let data = await response.json();
@@ -70,7 +70,7 @@ const LoginPage = () => {
                 </Alert>
             </Snackbar>
             <div className='h-full w-full absolute md:h-3/4 md:top-24'>
-                <div className='h-full mx-auto w-full md:max-w-2xl md:w-2/3 text-white bg-color-container md:flex'>
+                <div className='h-full mx-auto w-full md:max-w-3xl md:w-2/3 text-white bg-color-container md:flex'>
                     <img
                         src={authimage}
                         className='object-cover w-full h-1/3 md:w-1/2 md:h-full'

@@ -1,14 +1,25 @@
 import React, { useContext } from 'react'
-import AuthContext from '../context/AuthContext'
+
+import Navbar from '../components/Navbar'
+import Sidebar from '../components/Sidebar'
+import BottomNavigationComp from '../components/BottomNavigation'
+import CreatePost from '../components/CreatePost'
+import Feed from '../components/Feed'
 
 const HomePage = () => {
-  const {user, authTokens} = useContext(AuthContext)
-  console.log(authTokens)
   return (
-    <div>
-      <h1>
-        Hello, World
-      </h1>
+    <div className='bg-color-bg w-full h-full text-white fixed overflow-y-scroll'>
+      <Navbar />
+
+      <Sidebar />
+
+      <div className='flex-col h-full w-full sm:w-3/4 lg:w-1/2 px-2 pt-14 mx-auto'>
+        <CreatePost />
+        <Feed />
+        <BottomNavigationComp />
+      </div>
+
+
     </div>
   )
 }

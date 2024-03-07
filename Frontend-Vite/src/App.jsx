@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import { AuthProvider } from "./context/AuthContext";
 import PrivateRoute from "./utils/PrivateRoute";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
     <Router>
       <AuthProvider>
         <Routes>
-          <Route Component={LoginPage} path="/login"/>
+          <Route Component={LoginPage} path="/login" />
+          <Route Component={RegisterPage} path="/register" />
           <Route element={<PrivateRoute />}>
             <Route Component={HomePage} path="/" exact />
           </Route>

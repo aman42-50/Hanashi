@@ -12,6 +12,15 @@ class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
 
+class CheckUserNameView(APIView):
+
+    def post(self, request, format=None):
+        username = request.data['username']
+        exists = User.objects.filter(username=username).exists()
+        data = {"exists": exists}
+        return Response(data)
+
+
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
